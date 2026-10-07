@@ -11,7 +11,8 @@
     "build": "vite build",
     "start": "node server/index.js",
     "test": "node --test test/*.test.js",
-    "test:browser": "node scripts/browser-smoke.js"
+    "test:browser": "node scripts/browser-smoke.js",
+    "build:preview": "npm run build && node scripts/build-preview.mjs"
   },
   "dependencies": {
     "express": "^5.1.0",

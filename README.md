@@ -115,3 +115,23 @@ test/api.test.js        Kiểm thử tích hợp backend
 ```
 
 Không dùng logo/đề thi IELTS có bản quyền; IELTS là nhãn hiệu của chủ sở hữu tương ứng. Website là công cụ luyện tập độc lập.
+
+## Preview mở bên ngoài ChatGPT
+
+Bản preview tương tác được lưu ở `docs/index.html`, gói React/CSS và nội dung demo trong một file. Không dùng tài khoản, dữ liệu, SQLite hoặc API key của ứng dụng thật. Các thao tác chỉ mô phỏng trong bộ nhớ của trình duyệt; tải lại trang sẽ đặt lại dữ liệu. Không có AI/backend thật trong preview.
+
+Link xem trực tiếp qua RawGithack:
+
+https://raw.githack.com/thaituegia/webieltsGPT/main/docs/index.html
+
+Tạo lại preview sau khi đổi giao diện:
+
+```bash
+npm run build:preview
+```
+
+GitHub Pages đã có workflow `.github/workflows/preview-pages.yml`. Chủ repository cần bật **Settings → Pages → Build and deployment → Source: GitHub Actions**, rồi vào **Actions → Publish preview → Run workflow**. Token mặc định của workflow đủ để deploy sau khi Pages được bật; không cần cung cấp token cá nhân. URL GitHub Pages sau khi deploy thành công:
+
+https://thaituegia.github.io/webieltsGPT/
+
+Link RawGithack và Pages phụ thuộc dịch vụ bên ngoài. Môi trường cloud hiện chặn truy cập các domain này nên chưa thể kiểm tra HTTP của link công khai từ đây; file preview đã được kiểm thử qua Chromium ở desktop/mobile. GitHub Pages chỉ host preview tĩnh; ứng dụng React + Node đầy đủ cần server Node và lưu trữ bền như phần triển khai ở trên.
