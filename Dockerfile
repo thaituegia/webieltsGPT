@@ -16,6 +16,8 @@ RUN --mount=type=secret,id=ca_cert,target=/tmp/ca.crt \
     npm ci --omit=dev && mkdir /app/data && chown node:node /app/data
 COPY --from=build /app/dist ./dist
 COPY server ./server
+# Checkouts may have restrictive file modes; the runtime user must own app files.
+RUN chown -R node:node /app
 USER node
 EXPOSE 3001
 CMD ["node", "server/index.js"]
